@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_2/widgets/home_bottom_bar.dart';
+import 'package:flutter_application_2/widgets/items_widget2.dart';
+import 'package:flutter_application_2/widgets/items_widget3.dart';
+import 'package:flutter_application_2/widgets/items_widget4.dart';
 import 'package:google_fonts/google_fonts.dart';
 
 import '../widgets/items_widget.dart';
@@ -20,6 +23,9 @@ class _HomeScreenState extends State<HomeScreen>
     _tabController = TabController(length: 4, vsync: this, initialIndex: 0);
     _tabController.addListener(_handleTabSelection);
     super.initState();
+    _tabController.addListener(() {
+      setState(() {});
+    });
   }
 
   _handleTabSelection() {
@@ -27,6 +33,13 @@ class _HomeScreenState extends State<HomeScreen>
       setState(() {});
     }
   }
+
+  List<Widget> centerWidgets = [
+    ItemsWidget(), // Widget cho Hot Coffee
+    ItemsWidget2(), // Widget cho Cold Coffee
+    ItemsWidget3(), // Widget cho Capuiccino
+    ItemsWidget4(), // Widget cho Americano
+  ];
 
   @override
   void dispose() {
@@ -120,14 +133,19 @@ class _HomeScreenState extends State<HomeScreen>
             SizedBox(
               height: 10,
             ),
+
             Center(
-              child: [
-                ItemsWidget(),
-                ItemsWidget(),
-                ItemsWidget(),
-                ItemsWidget(),
-              ][_tabController.index],
+              child: centerWidgets[_tabController.index],
             )
+
+            // Center(
+            //   child: [
+            //     ItemsWidget(),
+            //     ItemsWidget(),
+            //     ItemsWidget(),
+            //     ItemsWidget(),
+            //   ][_tabController.index],
+            // )
           ],
         ),
       )),

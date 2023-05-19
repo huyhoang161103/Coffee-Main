@@ -27,14 +27,96 @@ class WellcomeScreen extends StatelessWidget {
             ),
             Column(
               children: [
-                Text(
-                  "Feeling Low? Take a Sip of Coffee",
-                  style: TextStyle(
-                    color: Colors.white.withOpacity(0.8),
-                    fontSize: 18,
-                    fontWeight: FontWeight.w500,
-                    letterSpacing: 1,
+                Container(
+                  margin: EdgeInsets.only(bottom: 10, left: 20, right: 20),
+                  height: 60,
+                  decoration: BoxDecoration(
+                    color: Colors.grey[200],
+                    borderRadius: BorderRadius.circular(30),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.1),
+                        offset: Offset(0, 3),
+                        blurRadius: 6,
+                      ),
+                    ],
                   ),
+                  child: TextFormField(
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.black87,
+                    ),
+                    decoration: InputDecoration(
+                      border: InputBorder.none,
+                      hintText: "User name",
+                      hintStyle: TextStyle(
+                        color: Colors.black.withOpacity(0.5),
+                      ),
+                      prefixIcon: Icon(
+                        Icons.person,
+                        size: 30,
+                        color: Colors.black.withOpacity(0.5),
+                      ),
+                    ),
+                  ),
+                ),
+                Container(
+                  margin: EdgeInsets.only(bottom: 10, left: 20, right: 20),
+                  height: 60,
+                  decoration: BoxDecoration(
+                    color: Colors.grey[200],
+                    borderRadius: BorderRadius.circular(30),
+                    boxShadow: [
+                      BoxShadow(
+                        color: Colors.black.withOpacity(0.1),
+                        offset: Offset(0, 3),
+                        blurRadius: 6,
+                      ),
+                    ],
+                  ),
+                  child: TextFormField(
+                    style: TextStyle(
+                      fontSize: 16,
+                      color: Colors.black87,
+                    ),
+                    decoration: InputDecoration(
+                      border: InputBorder.none,
+                      hintText: "Password",
+                      hintStyle: TextStyle(
+                        color: Colors.black.withOpacity(0.5),
+                      ),
+                      prefixIcon: Icon(
+                        Icons.lock,
+                        size: 30,
+                        color: Colors.black.withOpacity(0.5),
+                      ),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+            Column(
+              children: [
+                const Text.rich(
+                  TextSpan(
+                      text: "You forgot your",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 18,
+                        fontWeight: FontWeight.w500,
+                        letterSpacing: 1,
+                      ),
+                      children: [
+                        TextSpan(
+                          text: " password",
+                          style: TextStyle(
+                            color: Colors.lightBlueAccent,
+                            fontSize: 18,
+                            fontWeight: FontWeight.w500,
+                            letterSpacing: 1,
+                          ),
+                        )
+                      ]),
                 ),
                 SizedBox(
                   height: 80,
@@ -53,7 +135,7 @@ class WellcomeScreen extends StatelessWidget {
                           color: Color(0xFFE57734),
                           borderRadius: BorderRadius.circular(10)),
                       child: Text(
-                        "Get Start",
+                        "Login",
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 22,
