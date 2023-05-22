@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_2/widgets/home_bottom_bar.dart';
+import 'package:flutter_application_2/widgets/items_widget1.dart';
 import 'package:flutter_application_2/widgets/items_widget2.dart';
 import 'package:flutter_application_2/widgets/items_widget3.dart';
 import 'package:flutter_application_2/widgets/items_widget4.dart';
 import 'package:google_fonts/google_fonts.dart';
-
-import '../widgets/items_widget.dart';
 
 class HomeScreen extends StatefulWidget {
   const HomeScreen({super.key});
@@ -35,10 +34,10 @@ class _HomeScreenState extends State<HomeScreen>
   }
 
   List<Widget> centerWidgets = [
-    ItemsWidget(), // Widget cho Hot Coffee
-    ItemsWidget2(), // Widget cho Cold Coffee
-    ItemsWidget3(), // Widget cho Capuiccino
-    ItemsWidget4(), // Widget cho Americano
+    ItemsWidget1(),
+    ItemsWidget2(),
+    ItemsWidget3(),
+    ItemsWidget4(),
   ];
 
   @override
@@ -85,8 +84,8 @@ class _HomeScreenState extends State<HomeScreen>
             Padding(
               padding: EdgeInsets.symmetric(horizontal: 15),
               child: Text(
-                "It's a Great Day for Coffee",
-                style: GoogleFonts.abhayaLibre(
+                "Hôm nay bạn uống gì?",
+                style: TextStyle(
                   color: Colors.white,
                   fontSize: 30,
                   fontWeight: FontWeight.w500,
@@ -104,7 +103,7 @@ class _HomeScreenState extends State<HomeScreen>
               child: TextFormField(
                 decoration: InputDecoration(
                     border: InputBorder.none,
-                    hintText: "Find your coffee",
+                    hintText: "Tìm kiếm thức uống",
                     hintStyle: TextStyle(color: Colors.white.withOpacity(0.5)),
                     prefixIcon: Icon(
                       Icons.search,
@@ -124,10 +123,12 @@ class _HomeScreenState extends State<HomeScreen>
                       color: Color(0xFFE57734),
                     ),
                     insets: EdgeInsets.symmetric(horizontal: 16)),
+                labelStyle: TextStyle(fontSize: 20),
+                labelPadding: EdgeInsets.symmetric(horizontal: 20),
                 tabs: [
-                  Tab(text: "Hot Coffee"),
-                  Tab(text: "Cold Coffee"),
-                  Tab(text: "Capuiccino"),
+                  Tab(text: "Cà Phê"),
+                  Tab(text: "Trà"),
+                  Tab(text: "Sinh Tố"),
                   Tab(text: "Americano"),
                 ]),
             SizedBox(

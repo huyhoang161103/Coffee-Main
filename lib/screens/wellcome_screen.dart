@@ -19,7 +19,7 @@ class WellcomeScreen extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             Text(
-              "Coffee Shop",
+              "Highlands Coffee®",
               style: GoogleFonts.pacifico(
                 fontSize: 50,
                 color: Colors.white,
@@ -28,6 +28,7 @@ class WellcomeScreen extends StatelessWidget {
             Column(
               children: [
                 Container(
+                  padding: EdgeInsets.only(bottom: 10),
                   margin: EdgeInsets.only(bottom: 10, left: 20, right: 20),
                   height: 60,
                   decoration: BoxDecoration(
@@ -48,7 +49,7 @@ class WellcomeScreen extends StatelessWidget {
                     ),
                     decoration: InputDecoration(
                       border: InputBorder.none,
-                      hintText: "User name",
+                      hintText: "Tài Khoản",
                       hintStyle: TextStyle(
                         color: Colors.black.withOpacity(0.5),
                       ),
@@ -81,7 +82,7 @@ class WellcomeScreen extends StatelessWidget {
                     ),
                     decoration: InputDecoration(
                       border: InputBorder.none,
-                      hintText: "Password",
+                      hintText: "Mật Khẩu",
                       hintStyle: TextStyle(
                         color: Colors.black.withOpacity(0.5),
                       ),
@@ -99,7 +100,7 @@ class WellcomeScreen extends StatelessWidget {
               children: [
                 const Text.rich(
                   TextSpan(
-                      text: "You forgot your",
+                      text: "Bạn quên ",
                       style: TextStyle(
                         color: Colors.white,
                         fontSize: 18,
@@ -108,7 +109,7 @@ class WellcomeScreen extends StatelessWidget {
                       ),
                       children: [
                         TextSpan(
-                          text: " password",
+                          text: "mật khẩu?",
                           style: TextStyle(
                             color: Colors.lightBlueAccent,
                             fontSize: 18,
@@ -135,11 +136,10 @@ class WellcomeScreen extends StatelessWidget {
                           color: Color(0xFFE57734),
                           borderRadius: BorderRadius.circular(10)),
                       child: Text(
-                        "Login",
+                        "Đăng nhập",
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 22,
-                          fontWeight: FontWeight.bold,
                           letterSpacing: 1,
                         ),
                       ),

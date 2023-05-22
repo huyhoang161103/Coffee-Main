@@ -2,12 +2,19 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_2/screens/single_item_screen.dart';
 
-class ItemsWidget extends StatelessWidget {
+class ItemsWidget1 extends StatelessWidget {
   List img = [
-    'Late',
-    'Espresso',
-    'Black Coffee',
-    'Cold Coffee',
+    'Cà Phê Sữa',
+    'Caramel Phin',
+    'Trà Thạch Đen',
+    'Trà Thạch Đào',
+  ];
+
+  List<String> imagePaths = [
+    "images/caphe.png",
+    "images/cream.png",
+    "images/thach.png",
+    "images/xoai.png",
   ];
 
   @override
@@ -43,7 +50,7 @@ class ItemsWidget extends StatelessWidget {
                   child: Container(
                     margin: EdgeInsets.all(10),
                     child: Image.asset(
-                      "images/caphe.png",
+                      imagePaths[i],
                       width: 120,
                       height: 120,
                       fit: BoxFit.contain,

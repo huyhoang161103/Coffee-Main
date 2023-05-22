@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_2/screens/favorites_screen.dart';
+import 'package:flutter_application_2/screens/home_screen.dart';
+import 'package:flutter_application_2/screens/notifications_screen.dart';
+import 'package:flutter_application_2/screens/profile_screen.dart';
 
 class HomeBottomBar extends StatelessWidget {
   @override
@@ -15,26 +19,58 @@ class HomeBottomBar extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Icon(
-            Icons.home,
-            color: Color(0xFFE57734),
-            size: 35,
+          InkWell(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => HomeScreen()),
+              );
+            },
+            child: Icon(
+              Icons.home,
+              color: Color(0xFFE57734),
+              size: 35,
+            ),
           ),
-          Icon(
-            Icons.favorite_outlined,
-            color: Color(0xFFE57734),
-            size: 35,
+          InkWell(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => FavoritesPage()),
+              );
+            },
+            child: Icon(
+              Icons.favorite_outlined,
+              color: Color(0xFFE57734),
+              size: 35,
+            ),
           ),
-          Icon(
-            Icons.notifications,
-            color: Color(0xFFE57734),
-            size: 35,
+          InkWell(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => NotificationsPage()),
+              );
+            },
+            child: Icon(
+              Icons.notifications,
+              color: Color(0xFFE57734),
+              size: 35,
+            ),
           ),
-          Icon(
-            Icons.person,
-            color: Color(0xFFE57734),
-            size: 35,
-          )
+          InkWell(
+            onTap: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => ProfilePage()),
+              );
+            },
+            child: Icon(
+              Icons.person,
+              color: Color(0xFFE57734),
+              size: 35,
+            ),
+          ),
         ],
       ),
     );
