@@ -1,8 +1,55 @@
+import 'package:firebase_database/firebase_database.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_2/screens/home_screen.dart';
+import 'package:flutter_application_2/screens/signup_screen.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 
 class WellcomeScreen extends StatelessWidget {
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
+
+  FirebaseAuth _auth = FirebaseAuth.instance;
+
+  Future<void> signIn() async {
+    try {
+      UserCredential userCredential = await _auth.signInWithEmailAndPassword(
+        email: emailController.text,
+        password: passwordController.text,
+      );
+
+      // Kết nối với Realtime Database
+      // ignore: deprecated_member_use
+      DatabaseReference databaseReference =
+          FirebaseDatabase.instance.reference();
+
+      // Lấy dữ liệu người dùng từ Realtime Database
+      DatabaseEvent dataSnapshot = await databaseReference
+          .child('users')
+          .child(userCredential.user!.uid)
+          .once();
+      Map<dynamic, dynamic>? userData =
+          dataSnapshot.snapshot.value as Map<dynamic, dynamic>?;
+
+      // Sử dụng dữ liệu người dùng
+      if (userData != null) {
+        String username = userData['username'];
+        String email = userData['email'];
+
+        // Tiếp tục xử lý hoặc chuyển hướng đến màn hình khác
+      } else {
+        print('Không tìm thấy dữ liệu người dùng.');
+      }
+    } on FirebaseAuthException catch (e) {
+      if (e.code == 'user-not-found') {
+        print('Không tìm thấy người dùng với email này.');
+      } else if (e.code == 'wrong-password') {
+        print('Mật khẩu không chính xác.');
+      }
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Material(
@@ -43,6 +90,7 @@ class WellcomeScreen extends StatelessWidget {
                     ],
                   ),
                   child: TextFormField(
+                    controller: emailController,
                     style: TextStyle(
                       fontSize: 16,
                       color: Colors.black87,
@@ -76,6 +124,7 @@ class WellcomeScreen extends StatelessWidget {
                     ],
                   ),
                   child: TextFormField(
+                    controller: passwordController,
                     style: TextStyle(
                       fontSize: 16,
                       color: Colors.black87,
@@ -120,13 +169,14 @@ class WellcomeScreen extends StatelessWidget {
                       ]),
                 ),
                 SizedBox(
-                  height: 80,
+                  height: 40,
                 ),
-                //inkwell la gi?
                 InkWell(
                   onTap: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => HomeScreen()));
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => SignUpScreen()));
                   },
                   child: Ink(
                     child: Container(
@@ -136,7 +186,7 @@ class WellcomeScreen extends StatelessWidget {
                           color: Color(0xFFE57734),
                           borderRadius: BorderRadius.circular(10)),
                       child: Text(
-                        "Đăng nhập",
+                        "Đăng ký tài khoản",
                         style: TextStyle(
                           color: Colors.white,
                           fontSize: 22,
@@ -145,7 +195,38 @@ class WellcomeScreen extends StatelessWidget {
                       ),
                     ),
                   ),
-                )
+                ),
+                SizedBox(
+                  height: 80,
+                ),
+                ElevatedButton(
+                  onPressed: signIn,
+                  child: Text('Đăng nhập'),
+                ),
+                //inkwell la gi?
+                // InkWell(
+                //   onTap: () {
+                //     Navigator.push(context,
+                //         MaterialPageRoute(builder: (context) => HomeScreen()));
+                //   },
+                //   child: Ink(
+                //     child: Container(
+                //       padding:
+                //           EdgeInsets.symmetric(vertical: 15, horizontal: 50),
+                //       decoration: BoxDecoration(
+                //           color: Color(0xFFE57734),
+                //           borderRadius: BorderRadius.circular(10)),
+                //       child: Text(
+                //         "Đăng nhập",
+                //         style: TextStyle(
+                //           color: Colors.white,
+                //           fontSize: 22,
+                //           letterSpacing: 1,
+                //         ),
+                //       ),
+                //     ),
+                //   ),
+                // )
               ],
             )
           ],
