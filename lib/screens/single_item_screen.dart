@@ -163,7 +163,7 @@ class SingleItemScreen extends StatelessWidget {
                                 color: Color.fromARGB(255, 50, 54, 56),
                                 borderRadius: BorderRadius.circular(18)),
                             child: Text(
-                              "Add to cart",
+                              "Thêm vào giỏ hàng",
                               style: TextStyle(
                                   fontSize: 20,
                                   fontWeight: FontWeight.bold,
