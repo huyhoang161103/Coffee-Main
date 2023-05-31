@@ -1,4 +1,7 @@
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_2/screens/sign_in.dart';
 import 'package:flutter_application_2/widgets/home_bottom_bar.dart';
 import 'package:flutter_application_2/widgets/items_widget1.dart';
 import 'package:flutter_application_2/widgets/items_widget2.dart';
@@ -16,6 +19,7 @@ class _HomeScreenState extends State<HomeScreen>
     with SingleTickerProviderStateMixin {
   late TabController _tabController;
   final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
+  final User = FirebaseAuth.instance.currentUser!;
 
   @override
   void initState() {
@@ -150,15 +154,16 @@ class _HomeScreenState extends State<HomeScreen>
       ),
       bottomNavigationBar: HomeBottomBar(),
       drawer: Drawer(
+        backgroundColor: Color(0xFF212325),
         child: ListView(
           padding: EdgeInsets.zero,
           children: [
             DrawerHeader(
               decoration: BoxDecoration(
-                color: Colors.blue,
+                color: Color(0xFFE57734),
               ),
               child: Text(
-                'Drawer Header',
+                'Thông tin khách hàng ',
                 style: TextStyle(
                   color: Colors.white,
                   fontSize: 24,
@@ -166,26 +171,53 @@ class _HomeScreenState extends State<HomeScreen>
               ),
             ),
             ListTile(
-              title: Text('Item 1'),
+              leading: Icon(
+                Icons.shopping_cart,
+                color: Colors.white,
+              ),
+              title: Text(
+                'Giỏ hàng của tôi',
+                style: TextStyle(color: Colors.white),
+              ),
               onTap: () {
                 // Do something
                 Navigator.pop(context);
               },
             ),
             ListTile(
-              title: Text('Item 2'),
+              leading: Icon(Icons.favorite_outlined, color: Colors.white),
+              title: Text(
+                'Món yêu thích của tôi',
+                style: TextStyle(color: Colors.white),
+              ),
               onTap: () {
                 // Do something
                 Navigator.pop(context);
               },
             ),
-            ListTile(
-              title: Text('Item 3'),
-              onTap: () {
-                // Do something
-                Navigator.pop(context);
-              },
-            ),
+            Padding(
+                padding: EdgeInsets.only(top: 20, right: 80, left: 80),
+                child: Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    MaterialButton(
+                        onPressed: () async {
+                          await FirebaseAuth.instance.signOut();
+                          Navigator.pushReplacement(
+                              context,
+                              MaterialPageRoute(
+                                  builder: (context) => SignIn()));
+                        },
+                        color: Color(0xFFE57734),
+                        child: Row(children: [
+                          Icon(Icons
+                              .exit_to_app), // Thêm icon exit_to_app vào nút
+                          SizedBox(
+                              width: 8.0), // Tạo khoảng cách giữa icon và chữ
+                          Text('Đăng xuất'),
+                        ]))
+                  ],
+                )),
           ],
         ),
       ),
