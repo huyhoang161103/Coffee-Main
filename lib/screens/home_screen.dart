@@ -4,10 +4,9 @@ import 'package:flutter_application_2/widgets/items_widget1.dart';
 import 'package:flutter_application_2/widgets/items_widget2.dart';
 import 'package:flutter_application_2/widgets/items_widget3.dart';
 import 'package:flutter_application_2/widgets/items_widget4.dart';
-import 'package:google_fonts/google_fonts.dart';
 
 class HomeScreen extends StatefulWidget {
-  const HomeScreen({super.key});
+  const HomeScreen({Key? key}) : super(key: key);
 
   @override
   State<HomeScreen> createState() => _HomeScreenState();
@@ -16,6 +15,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen>
     with SingleTickerProviderStateMixin {
   late TabController _tabController;
+  final GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
 
   @override
   void initState() {
@@ -49,59 +49,63 @@ class _HomeScreenState extends State<HomeScreen>
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
       body: SafeArea(
-          child: Padding(
-        padding: EdgeInsets.only(top: 15),
-        child: ListView(
-          children: [
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 15),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  InkWell(
-                    onTap: () {},
-                    child: Icon(
-                      Icons.sort_rounded,
-                      color: Colors.white.withOpacity(0.5),
-                      size: 35,
+        child: Padding(
+          padding: EdgeInsets.only(top: 15),
+          child: ListView(
+            children: [
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 15),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    InkWell(
+                      onTap: () {
+                        _scaffoldKey.currentState!.openDrawer();
+                      },
+                      child: Icon(
+                        Icons.sort_rounded,
+                        color: Colors.white.withOpacity(0.5),
+                        size: 35,
+                      ),
                     ),
-                  ),
-                  InkWell(
-                    onTap: () {},
-                    child: Icon(
-                      Icons.notifications,
-                      color: Colors.white.withOpacity(0.5),
-                      size: 35,
-                    ),
-                  )
-                ],
-              ),
-            ),
-            SizedBox(
-              height: 30,
-            ),
-            Padding(
-              padding: EdgeInsets.symmetric(horizontal: 15),
-              child: Text(
-                "Hôm nay bạn uống gì?",
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 30,
-                  fontWeight: FontWeight.w500,
+                    InkWell(
+                      onTap: () {},
+                      child: Icon(
+                        Icons.notifications,
+                        color: Colors.white.withOpacity(0.5),
+                        size: 35,
+                      ),
+                    )
+                  ],
                 ),
               ),
-            ),
-            Container(
-              margin: EdgeInsets.symmetric(horizontal: 15, vertical: 30),
-              width: MediaQuery.of(context).size.width,
-              height: 60,
-              alignment: Alignment.center,
-              decoration: BoxDecoration(
+              SizedBox(
+                height: 30,
+              ),
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 15),
+                child: Text(
+                  "Hôm nay bạn uống gì?",
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontSize: 30,
+                    fontWeight: FontWeight.w500,
+                  ),
+                ),
+              ),
+              Container(
+                margin: EdgeInsets.symmetric(horizontal: 15, vertical: 30),
+                width: MediaQuery.of(context).size.width,
+                height: 60,
+                alignment: Alignment.center,
+                decoration: BoxDecoration(
                   color: Color.fromARGB(255, 50, 54, 56),
-                  borderRadius: BorderRadius.circular(16)),
-              child: TextFormField(
-                decoration: InputDecoration(
+                  borderRadius: BorderRadius.circular(16),
+                ),
+                child: TextFormField(
+                  decoration: InputDecoration(
                     border: InputBorder.none,
                     hintText: "Tìm kiếm thức uống",
                     hintStyle: TextStyle(color: Colors.white.withOpacity(0.5)),
@@ -109,20 +113,22 @@ class _HomeScreenState extends State<HomeScreen>
                       Icons.search,
                       size: 30,
                       color: Colors.white.withOpacity(0.5),
-                    )),
+                    ),
+                  ),
+                ),
               ),
-            ),
-            TabBar(
+              TabBar(
                 controller: _tabController,
                 labelColor: Color(0xFFE57734),
                 unselectedLabelColor: Colors.white.withOpacity(0.5),
                 isScrollable: true,
                 indicator: UnderlineTabIndicator(
-                    borderSide: BorderSide(
-                      width: 3,
-                      color: Color(0xFFE57734),
-                    ),
-                    insets: EdgeInsets.symmetric(horizontal: 16)),
+                  borderSide: BorderSide(
+                    width: 3,
+                    color: Color(0xFFE57734),
+                  ),
+                  insets: EdgeInsets.symmetric(horizontal: 16),
+                ),
                 labelStyle: TextStyle(fontSize: 20),
                 labelPadding: EdgeInsets.symmetric(horizontal: 20),
                 tabs: [
@@ -130,27 +136,59 @@ class _HomeScreenState extends State<HomeScreen>
                   Tab(text: "Trà"),
                   Tab(text: "Sinh Tố"),
                   Tab(text: "Americano"),
-                ]),
-            SizedBox(
-              height: 10,
+                ],
+              ),
+              SizedBox(
+                height: 10,
+              ),
+              Center(
+                child: centerWidgets[_tabController.index],
+              ),
+            ],
+          ),
+        ),
+      ),
+      bottomNavigationBar: HomeBottomBar(),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: [
+            DrawerHeader(
+              decoration: BoxDecoration(
+                color: Colors.blue,
+              ),
+              child: Text(
+                'Drawer Header',
+                style: TextStyle(
+                  color: Colors.white,
+                  fontSize: 24,
+                ),
+              ),
             ),
-
-            Center(
-              child: centerWidgets[_tabController.index],
-            )
-
-            // Center(
-            //   child: [
-            //     ItemsWidget(),
-            //     ItemsWidget(),
-            //     ItemsWidget(),
-            //     ItemsWidget(),
-            //   ][_tabController.index],
-            // )
+            ListTile(
+              title: Text('Item 1'),
+              onTap: () {
+                // Do something
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              title: Text('Item 2'),
+              onTap: () {
+                // Do something
+                Navigator.pop(context);
+              },
+            ),
+            ListTile(
+              title: Text('Item 3'),
+              onTap: () {
+                // Do something
+                Navigator.pop(context);
+              },
+            ),
           ],
         ),
-      )),
-      bottomNavigationBar: HomeBottomBar(),
+      ),
     );
   }
 }

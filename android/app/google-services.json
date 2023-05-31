@@ -1,21 +1,21 @@
 {
   "project_info": {
-    "project_number": "486245911561",
-    "project_id": "coffeeapp-project",
-    "storage_bucket": "coffeeapp-project.appspot.com"
+    "project_number": "165852388585",
+    "project_id": "app-coffee-f13ab",
+    "storage_bucket": "app-coffee-f13ab.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:486245911561:android:85c3ed190de1a5fe5fbcd8",
+        "mobilesdk_app_id": "1:165852388585:android:c6d7bad678f67d45b1e478",
         "android_client_info": {
-          "package_name": "com.android.application"
+          "package_name": "com.example.flutter_application_2"
         }
       },
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyCGJ_nJFyxh4VMccPzvLqdPSEQNLUbuwZI"
+          "current_key": "AIzaSyD3X2WdwVTYoyMKC8xxOjEl0FDH1wTJ4CI"
         }
       ],
       "services": {

@@ -19,7 +19,7 @@ class HomeBottomBar extends StatelessWidget {
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          InkWell(
+          GestureDetector(
             onTap: () {
               Navigator.push(
                 context,
@@ -32,7 +32,7 @@ class HomeBottomBar extends StatelessWidget {
               size: 35,
             ),
           ),
-          InkWell(
+          GestureDetector(
             onTap: () {
               Navigator.push(
                 context,
@@ -45,7 +45,7 @@ class HomeBottomBar extends StatelessWidget {
               size: 35,
             ),
           ),
-          InkWell(
+          GestureDetector(
             onTap: () {
               Navigator.push(
                 context,
@@ -58,7 +58,7 @@ class HomeBottomBar extends StatelessWidget {
               size: 35,
             ),
           ),
-          InkWell(
+          GestureDetector(
             onTap: () {
               Navigator.push(
                 context,
@@ -66,7 +66,7 @@ class HomeBottomBar extends StatelessWidget {
               );
             },
             child: Icon(
-              Icons.person,
+              Icons.shopping_cart_rounded,
               color: Color(0xFFE57734),
               size: 35,
             ),
