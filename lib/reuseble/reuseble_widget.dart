@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/material.dart';
 
-TextField reusebleTextField(String text, IconData icon, bool isPasswordType,
-    TextEditingController controller) {
+TextField reusableTextField(
+  String text,
+  IconData icon,
+  bool isPasswordType,
+  TextEditingController controller,
+) {
   return TextField(
     controller: controller,
     obscureText: isPasswordType,
@@ -23,8 +26,9 @@ TextField reusebleTextField(String text, IconData icon, bool isPasswordType,
       floatingLabelBehavior: FloatingLabelBehavior.never,
       fillColor: Colors.white.withOpacity(0.3),
       border: OutlineInputBorder(
-          borderRadius: BorderRadius.circular(30.0),
-          borderSide: const BorderSide(width: 0, style: BorderStyle.none)),
+        borderRadius: BorderRadius.circular(30.0),
+        borderSide: const BorderSide(width: 0, style: BorderStyle.none),
+      ),
     ),
     keyboardType: isPasswordType
         ? TextInputType.visiblePassword
@@ -32,7 +36,7 @@ TextField reusebleTextField(String text, IconData icon, bool isPasswordType,
   );
 }
 
-Container signInsignUpButton(
+Container signInSignUpButton(
     BuildContext context, bool isLogin, Function onTap) {
   return Container(
     width: MediaQuery.of(context).size.width,
@@ -46,17 +50,24 @@ Container signInsignUpButton(
       child: Text(
         isLogin ? "ĐĂNG NHẬP" : "ĐĂNG KÍ",
         style: TextStyle(
-            color: Colors.black87, fontWeight: FontWeight.bold, fontSize: 16),
+          color: Colors.black87,
+          fontWeight: FontWeight.bold,
+          fontSize: 16,
+        ),
       ),
       style: ButtonStyle(
-          backgroundColor: MaterialStateProperty.resolveWith((states) {
-            if (states.contains(MaterialState.pressed)) {
-              return Colors.black26;
-            }
-            return Colors.white;
-          }),
-          shape: MaterialStateProperty.all<RoundedRectangleBorder>(
-              RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)))),
+        backgroundColor: MaterialStateProperty.resolveWith((states) {
+          if (states.contains(MaterialState.pressed)) {
+            return Colors.black26;
+          }
+          return Colors.white;
+        }),
+        shape: MaterialStateProperty.all<RoundedRectangleBorder>(
+          RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(30),
+          ),
+        ),
+      ),
     ),
   );
 }
