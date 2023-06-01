@@ -17,6 +17,8 @@ class ItemsWidget1 extends StatelessWidget {
     "images/xoai.png",
   ];
 
+  List<String> cartItems = [];
+
   @override
   Widget build(BuildContext context) {
     return GridView.count(
@@ -95,16 +97,21 @@ class ItemsWidget1 extends StatelessWidget {
                           color: Colors.white,
                         ),
                       ),
-                      Container(
-                        padding: EdgeInsets.all(5),
-                        decoration: BoxDecoration(
-                          color: Color(0xFFE57734),
-                          borderRadius: BorderRadius.circular(20),
-                        ),
-                        child: Icon(
-                          CupertinoIcons.add,
-                          size: 20,
-                          color: Colors.white,
+                      GestureDetector(
+                        onTap: () {
+                          _addToCart(img[i]);
+                        },
+                        child: Container(
+                          padding: EdgeInsets.all(5),
+                          decoration: BoxDecoration(
+                            color: Color(0xFFE57734),
+                            borderRadius: BorderRadius.circular(20),
+                          ),
+                          child: Icon(
+                            CupertinoIcons.add,
+                            size: 20,
+                            color: Colors.white,
+                          ),
                         ),
                       )
                     ],
@@ -115,5 +122,9 @@ class ItemsWidget1 extends StatelessWidget {
           ),
       ],
     );
+  }
+
+  void _addToCart(String item) {
+    cartItems.add(item);
   }
 }

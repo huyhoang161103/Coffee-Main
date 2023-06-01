@@ -170,6 +170,16 @@ class _HomeScreenState extends State<HomeScreen>
                 ),
               ),
             ),
+            Container(
+              child: const CircleAvatar(
+                backgroundColor: Color.fromARGB(255, 165, 107, 6),
+                minRadius: 80.0,
+                child: CircleAvatar(
+                  radius: 70.0,
+                  backgroundImage: AssetImage("images/caphe.png"),
+                ),
+              ),
+            ),
             ListTile(
               leading: Icon(
                 Icons.shopping_cart,

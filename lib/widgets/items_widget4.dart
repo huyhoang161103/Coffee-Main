@@ -96,7 +96,7 @@ class ItemsWidget4 extends StatelessWidget {
                         ),
                         child: Icon(
                           CupertinoIcons.add,
-                          size: 20,
+                          size: 20, 
                           color: Colors.white,
                         ),
                       )
