@@ -16,13 +16,13 @@ class FirestoreDataScreen extends StatelessWidget {
           }
 
           if (snapshot.hasError) {
-            return Text('Failed to fetch data');
+            return Text('Không tìm nạp được dữ liệu');
           }
 
           final products = snapshot.data?.docs ?? [];
 
           if (products.isEmpty) {
-            return Text('No products available');
+            return Text('Không có sản phẩm nào');
           }
 
           return ListView.builder(
