@@ -224,7 +224,13 @@ class _HomeScreenState extends State<HomeScreen>
                               .exit_to_app), // Thêm icon exit_to_app vào nút
                           SizedBox(
                               width: 8.0), // Tạo khoảng cách giữa icon và chữ
-                          Text('Đăng xuất'),
+                          Text(
+                            'Đăng xuất',
+                            style: TextStyle(
+                                color: Colors.black87,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 16),
+                          ),
                         ]))
                   ],
                 )),

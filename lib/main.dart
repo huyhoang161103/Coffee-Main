@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_application_2/screens/sign_in.dart';
 
+import 'screens/firestore_test_screen.dart';
+
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
   await Firebase.initializeApp(
@@ -24,7 +26,7 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: Color(0xFF212325),
       ),
       debugShowCheckedModeBanner: false,
-      home: SignIn(),
+      home: FirestoreDataScreen(),
     );
   }
 }
