@@ -38,7 +38,7 @@ class _HomeScreenState extends State<HomeScreen>
   }
 
   List<Widget> centerWidgets = [
-    // ItemsWidget1(),
+    ItemsWidget1(),
     ItemsWidget2(),
     ItemsWidget3(),
     ItemsWidget4(),
