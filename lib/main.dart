@@ -26,7 +26,7 @@ class MyApp extends StatelessWidget {
         scaffoldBackgroundColor: Color(0xFF212325),
       ),
       debugShowCheckedModeBanner: false,
-      home: FirestoreDataScreen(),
+      home: SignIn(),
     );
   }
 }
