@@ -1,10 +1,17 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_application_2/screens/home_screen.dart';
+
+import '../widgets/items_widget1.dart';
 
 class SingleItemScreen extends StatefulWidget {
   String img;
-  SingleItemScreen(this.img);
+  String itemName;
+  double itemPrice;
+  String itemDescription;
+  ItemsWidget1 itemsWidget;
+
+  SingleItemScreen(this.img, this.itemName, this.itemPrice,
+      this.itemDescription, this.itemsWidget);
 
   @override
   _SingleItemScreenState createState() => _SingleItemScreenState();
@@ -54,7 +61,7 @@ class _SingleItemScreenState extends State<SingleItemScreen> {
                 ),
                 Center(
                   child: Image.asset(
-                    "images/caphe.png",
+                    widget.img,
                     width: MediaQuery.of(context).size.width / 1.6,
                   ),
                 ),
@@ -77,7 +84,7 @@ class _SingleItemScreenState extends State<SingleItemScreen> {
                         height: 20,
                       ),
                       Text(
-                        widget.img,
+                        widget.itemName,
                         style: TextStyle(
                           fontSize: 30,
                           letterSpacing: 1,
@@ -150,7 +157,7 @@ class _SingleItemScreenState extends State<SingleItemScreen> {
                               ),
                             ),
                             Text(
-                              "30",
+                              "\$${widget.itemPrice}",
                               style: TextStyle(
                                 fontSize: 18,
                                 fontWeight: FontWeight.w500,
@@ -164,7 +171,7 @@ class _SingleItemScreenState extends State<SingleItemScreen> {
                         height: 20,
                       ),
                       Text(
-                        "Cà phê - hương thơm tinh tế, vị đắng quyến rũ. Một giọt đen ngọt ngào, mở ra thế giới đậm chất tinh hoa.",
+                        widget.itemDescription,
                         style: TextStyle(
                           fontSize: 16,
                           fontWeight: FontWeight.w500,
@@ -208,6 +215,15 @@ class _SingleItemScreenState extends State<SingleItemScreen> {
                             ElevatedButton(
                               onPressed: () {
                                 // Xử lý sự kiện khi nút "Thêm vào giỏ hàng" được nhấn
+                                // Ví dụ: Thêm sản phẩm vào giỏ hàng
+                                String itemName = widget.itemName;
+                                double itemPrice = widget.itemPrice;
+                                int itemQuantity = quantity;
+
+                                // In thông tin sản phẩm và số lượng
+                                print('Tên sản phẩm: $itemName');
+                                print('Giá sản phẩm: $itemPrice');
+                                print('Số lượng: $itemQuantity');
                               },
                               style: ElevatedButton.styleFrom(
                                 primary: Color.fromARGB(255, 50, 54, 56),

@@ -58,7 +58,7 @@ class _FavoritesPageState extends State<FavoritesPage> {
             SizedBox(height: 10),
             ListTile(
               leading: Image.asset(
-                'images/caphe.png',
+                'images/caphesua.png',
               ),
               title: Text(
                 'Cà Phê Sữa',

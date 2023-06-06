@@ -1,6 +1,8 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_application_2/screens/favorites_screen.dart';
+import 'package:flutter_application_2/screens/profile_screen.dart';
 import 'package:flutter_application_2/screens/sign_in.dart';
 import 'package:flutter_application_2/widgets/home_bottom_bar.dart';
 import 'package:flutter_application_2/widgets/items_widget1.dart';
@@ -39,9 +41,9 @@ class _HomeScreenState extends State<HomeScreen>
 
   List<Widget> centerWidgets = [
     ItemsWidget1(),
-    ItemsWidget2(),
-    ItemsWidget3(),
-    ItemsWidget4(),
+    // ItemsWidget2(),
+    // ItemsWidget3(),
+    // ItemsWidget4(),
   ];
 
   @override
@@ -162,22 +164,27 @@ class _HomeScreenState extends State<HomeScreen>
               decoration: BoxDecoration(
                 color: Color(0xFFE57734),
               ),
-              child: Text(
-                'Thông tin khách hàng ',
-                style: TextStyle(
-                  color: Colors.white,
-                  fontSize: 24,
-                ),
-              ),
-            ),
-            Container(
-              child: const CircleAvatar(
-                backgroundColor: Color.fromARGB(255, 165, 107, 6),
-                minRadius: 80.0,
-                child: CircleAvatar(
-                  radius: 70.0,
-                  backgroundImage: AssetImage("images/caphe.png"),
-                ),
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  Text(
+                    'Thông tin khách hàng',
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontSize: 24,
+                    ),
+                  ),
+                  SizedBox(height: 8),
+                  Container(
+                    alignment: Alignment.center,
+                    child: CircleAvatar(
+                      radius: 50.0,
+                      backgroundImage: AssetImage("images/logo.png"),
+                      backgroundColor: Color(0xFF212325),
+                    ),
+                  ),
+                ],
               ),
             ),
             ListTile(
@@ -185,25 +192,38 @@ class _HomeScreenState extends State<HomeScreen>
                 Icons.shopping_cart,
                 color: Colors.white,
               ),
-              title: Text(
-                'Giỏ hàng của tôi',
-                style: TextStyle(color: Colors.white),
+              title: GestureDetector(
+                child: Text(
+                  'Giỏ hàng của tôi',
+                  style: TextStyle(color: Colors.white),
+                ),
+                onTap: () {
+                  Navigator.pop(context); // Đóng Drawer (nếu cần thiết)
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => ProfilePage()),
+                  );
+                },
               ),
-              onTap: () {
-                // Do something
-                Navigator.pop(context);
-              },
             ),
             ListTile(
-              leading: Icon(Icons.favorite_outlined, color: Colors.white),
-              title: Text(
-                'Món yêu thích của tôi',
-                style: TextStyle(color: Colors.white),
+              leading: Icon(
+                Icons.shopping_cart,
+                color: Colors.white,
               ),
-              onTap: () {
-                // Do something
-                Navigator.pop(context);
-              },
+              title: GestureDetector(
+                child: Text(
+                  'Món yêu thích của tôi',
+                  style: TextStyle(color: Colors.white),
+                ),
+                onTap: () {
+                  Navigator.pop(context); // Đóng Drawer (nếu cần thiết)
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => FavoritesPage()),
+                  );
+                },
+              ),
             ),
             Padding(
                 padding: EdgeInsets.only(top: 20, right: 80, left: 80),
