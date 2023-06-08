@@ -41,9 +41,9 @@ class _HomeScreenState extends State<HomeScreen>
 
   List<Widget> centerWidgets = [
     ItemsWidget1(),
-    // ItemsWidget2(),
-    // ItemsWidget3(),
-    // ItemsWidget4(),
+    ItemsWidget2(category: "Cà phê"),
+    ItemsWidget3(category: "Trà sữa"),
+    ItemsWidget4(category: "Bánh ngọt"),
   ];
 
   @override
@@ -138,10 +138,10 @@ class _HomeScreenState extends State<HomeScreen>
                 labelStyle: TextStyle(fontSize: 20),
                 labelPadding: EdgeInsets.symmetric(horizontal: 20),
                 tabs: [
-                  Tab(text: "Cà Phê"),
-                  Tab(text: "Trà"),
-                  Tab(text: "Sinh Tố"),
-                  Tab(text: "Americano"),
+                  Tab(text: "Best Seller"),
+                  Tab(text: "Cà phê"),
+                  Tab(text: "Trà sữa"),
+                  Tab(text: "Bánh ngọt"),
                 ],
               ),
               SizedBox(

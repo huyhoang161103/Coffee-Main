@@ -52,11 +52,11 @@ class ItemsWidget1 extends StatelessWidget {
                           context,
                           MaterialPageRoute(
                             builder: (context) => SingleItemScreen(
-                              products[i].get('imageAssetPath'),
-                              products[i].get('name'),
-                              products[i].get('price'),
-                              products[i].get('description'),
-                              ItemsWidget1(),
+                              img: products[i].get('imageAssetPath'),
+                              itemName: products[i].get('name'),
+                              itemPrice: products[i].get('price'),
+                              itemDescription: products[i].get('description'),
+                              itemsWidget: ItemsWidget1(),
                             ),
                           ),
                         );

@@ -4,14 +4,19 @@ import 'package:flutter/material.dart';
 import '../widgets/items_widget1.dart';
 
 class SingleItemScreen extends StatefulWidget {
-  String img;
-  String itemName;
-  double itemPrice;
-  String itemDescription;
-  ItemsWidget1 itemsWidget;
+  final String img;
+  final String itemName;
+  final double itemPrice;
+  final String itemDescription;
+  final Widget itemsWidget;
 
-  SingleItemScreen(this.img, this.itemName, this.itemPrice,
-      this.itemDescription, this.itemsWidget);
+  SingleItemScreen({
+    required this.img,
+    required this.itemName,
+    required this.itemPrice,
+    required this.itemDescription,
+    required this.itemsWidget,
+  });
 
   @override
   _SingleItemScreenState createState() => _SingleItemScreenState();
