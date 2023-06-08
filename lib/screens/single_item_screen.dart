@@ -6,7 +6,7 @@ import '../widgets/items_widget1.dart';
 class SingleItemScreen extends StatefulWidget {
   final String img;
   final String itemName;
-  final double itemPrice;
+  late double itemPrice;
   final String itemDescription;
   final Widget itemsWidget;
 
@@ -41,6 +41,8 @@ class _SingleItemScreenState extends State<SingleItemScreen> {
 
   @override
   Widget build(BuildContext context) {
+    double totalPrice = widget.itemPrice * quantity;
+
     return Scaffold(
       body: SingleChildScrollView(
         child: SafeArea(
@@ -162,7 +164,7 @@ class _SingleItemScreenState extends State<SingleItemScreen> {
                               ),
                             ),
                             Text(
-                              "\$${widget.itemPrice}",
+                              "\$$totalPrice",
                               style: TextStyle(
                                 fontSize: 18,
                                 fontWeight: FontWeight.w500,
@@ -219,13 +221,10 @@ class _SingleItemScreenState extends State<SingleItemScreen> {
                           children: [
                             ElevatedButton(
                               onPressed: () {
-                                // Xử lý sự kiện khi nút "Thêm vào giỏ hàng" được nhấn
-                                // Ví dụ: Thêm sản phẩm vào giỏ hàng
                                 String itemName = widget.itemName;
-                                double itemPrice = widget.itemPrice;
+                                double itemPrice = totalPrice;
                                 int itemQuantity = quantity;
 
-                                // In thông tin sản phẩm và số lượng
                                 print('Tên sản phẩm: $itemName');
                                 print('Giá sản phẩm: $itemPrice');
                                 print('Số lượng: $itemQuantity');
