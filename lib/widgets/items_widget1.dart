@@ -23,13 +23,17 @@ class ItemsWidget1 extends StatelessWidget {
           return Text('Không có sản phẩm nào');
         }
 
+        final bestSellerProducts = products
+            .where((product) => product.get('bestSeller') == true)
+            .toList(); // Lọc các sản phẩm Best Seller
+
         return GridView.count(
           physics: NeverScrollableScrollPhysics(),
           crossAxisCount: 2,
           shrinkWrap: true,
           childAspectRatio: (150 / 195),
           children: [
-            for (int i = 0; i < products.length; i++)
+            for (int i = 0; i < bestSellerProducts.length; i++)
               Container(
                 padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
                 margin: EdgeInsets.symmetric(vertical: 8, horizontal: 13),
@@ -52,10 +56,11 @@ class ItemsWidget1 extends StatelessWidget {
                           context,
                           MaterialPageRoute(
                             builder: (context) => SingleItemScreen(
-                              img: products[i].get('imageAssetPath'),
-                              itemName: products[i].get('name'),
-                              itemPrice: products[i].get('price'),
-                              itemDescription: products[i].get('description'),
+                              img: bestSellerProducts[i].get('imageAssetPath'),
+                              itemName: bestSellerProducts[i].get('name'),
+                              itemPrice: bestSellerProducts[i].get('price'),
+                              itemDescription:
+                                  bestSellerProducts[i].get('description'),
                               itemsWidget: ItemsWidget1(),
                             ),
                           ),
@@ -64,7 +69,7 @@ class ItemsWidget1 extends StatelessWidget {
                       child: Container(
                         margin: EdgeInsets.all(10),
                         child: Image.asset(
-                          products[i].get('imageAssetPath'),
+                          bestSellerProducts[i].get('imageAssetPath'),
                           width: 120,
                           height: 120,
                           fit: BoxFit.contain,
@@ -79,7 +84,7 @@ class ItemsWidget1 extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Text(
-                              products[i].get('name'),
+                              bestSellerProducts[i].get('name'),
                               style: TextStyle(
                                 fontSize: 18,
                                 fontWeight: FontWeight.bold,
@@ -104,7 +109,7 @@ class ItemsWidget1 extends StatelessWidget {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           Text(
-                            '\$${products[i].get('price')}',
+                            '\$${bestSellerProducts[i].get('price')}',
                             style: TextStyle(
                               fontSize: 18,
                               fontWeight: FontWeight.w500,
