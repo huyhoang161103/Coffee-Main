@@ -24,6 +24,8 @@ class SingleItemScreen extends StatefulWidget {
 
 class _SingleItemScreenState extends State<SingleItemScreen> {
   int quantity = 1;
+  String selectedSize = 'S';
+  bool isAddedToFavorites = false;
 
   void incrementQuantity() {
     setState(() {
@@ -37,6 +39,58 @@ class _SingleItemScreenState extends State<SingleItemScreen> {
         quantity--;
       }
     });
+  }
+
+  void toggleFavorites() {
+    setState(() {
+      isAddedToFavorites = !isAddedToFavorites;
+    });
+
+    String message = isAddedToFavorites
+        ? 'Đã thêm vào mục yêu thích của bạn'
+        : 'Đã bỏ khỏi mục yêu thích của bạn';
+    showDialog(
+      context: context,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          backgroundColor: Color.fromARGB(255, 50, 54, 56),
+          shape:
+              RoundedRectangleBorder(borderRadius: BorderRadius.circular(20.0)),
+          title: Text(
+            'Thông báo',
+            textAlign: TextAlign.center,
+            style: TextStyle(
+                fontSize: 20, fontWeight: FontWeight.bold, color: Colors.white),
+          ),
+          content: Text(
+            message,
+            style: TextStyle(color: Colors.white),
+          ),
+          actions: <Widget>[
+            ElevatedButton(
+              style: ElevatedButton.styleFrom(
+                primary: Color(0xFFE57734),
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
+              ),
+              onPressed: () {
+                Navigator.of(context).pop();
+              },
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: 10.0, vertical: 5.0),
+                child: Text(
+                  'Đóng',
+                  style: TextStyle(
+                    color: Colors.white,
+                  ),
+                ),
+              ),
+            ),
+          ],
+        );
+      },
+    );
   }
 
   @override
@@ -201,14 +255,15 @@ class _SingleItemScreenState extends State<SingleItemScreen> {
                           SizedBox(
                             width: 10,
                           ),
-                          Text(
-                            "S",
-                            style: TextStyle(
-                              fontSize: 16,
-                              fontWeight: FontWeight.w500,
-                              color: Colors.white,
-                            ),
+                          buildSizeRadioButton('S'),
+                          SizedBox(
+                            width: 10,
                           ),
+                          buildSizeRadioButton('M'),
+                          SizedBox(
+                            width: 10,
+                          ),
+                          buildSizeRadioButton('L'),
                         ],
                       ),
                       SizedBox(
@@ -228,6 +283,7 @@ class _SingleItemScreenState extends State<SingleItemScreen> {
                                 print('Tên sản phẩm: $itemName');
                                 print('Giá sản phẩm: $itemPrice');
                                 print('Số lượng: $itemQuantity');
+                                print('Kích thước: $selectedSize');
                               },
                               style: ElevatedButton.styleFrom(
                                 primary: Color.fromARGB(255, 50, 54, 56),
@@ -247,15 +303,23 @@ class _SingleItemScreenState extends State<SingleItemScreen> {
                                 ),
                               ),
                             ),
-                            Container(
-                              padding: EdgeInsets.all(20),
-                              decoration: BoxDecoration(
-                                color: Color(0xFFE57734),
-                                borderRadius: BorderRadius.circular(18),
-                              ),
-                              child: Icon(
-                                Icons.favorite_border_outlined,
-                                color: Colors.white,
+                            InkWell(
+                              onTap: toggleFavorites,
+                              child: Container(
+                                padding: EdgeInsets.all(12),
+                                decoration: BoxDecoration(
+                                  shape: BoxShape.circle,
+                                  color: isAddedToFavorites
+                                      ? Colors.red
+                                      : Colors.white,
+                                ),
+                                child: Icon(
+                                  Icons.favorite,
+                                  color: isAddedToFavorites
+                                      ? Colors.white
+                                      : Colors.grey,
+                                  size: 24,
+                                ),
                               ),
                             ),
                           ],
@@ -266,6 +330,35 @@ class _SingleItemScreenState extends State<SingleItemScreen> {
                 ),
               ],
             ),
+          ),
+        ),
+      ),
+    );
+  }
+
+  Widget buildSizeRadioButton(String size) {
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          selectedSize = size;
+        });
+      },
+      child: Container(
+        padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(20),
+          color: selectedSize == size ? Colors.white : Colors.transparent,
+          border: Border.all(
+            color: Colors.white,
+            width: 1.5,
+          ),
+        ),
+        child: Text(
+          size,
+          style: TextStyle(
+            fontSize: 16,
+            fontWeight: FontWeight.w500,
+            color: selectedSize == size ? Colors.black : Colors.white,
           ),
         ),
       ),
