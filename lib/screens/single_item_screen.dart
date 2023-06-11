@@ -294,7 +294,7 @@ class _SingleItemScreenState extends State<SingleItemScreen> {
                                 ),
                               ),
                               child: Text(
-                                "Thêm vào giỏ hàng",
+                                "Mua ngay",
                                 style: TextStyle(
                                   fontSize: 24,
                                   color: Colors.white,

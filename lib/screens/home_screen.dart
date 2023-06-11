@@ -2,7 +2,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_application_2/screens/favorites_screen.dart';
-import 'package:flutter_application_2/screens/profile_screen.dart';
+import 'package:flutter_application_2/screens/cart_screen.dart';
 import 'package:flutter_application_2/screens/sign_in.dart';
 import 'package:flutter_application_2/widgets/bottom_bar.dart';
 import 'package:flutter_application_2/widgets/items_widget1.dart';
@@ -201,7 +201,7 @@ class _HomeScreenState extends State<HomeScreen>
                   Navigator.pop(context); // Đóng Drawer (nếu cần thiết)
                   Navigator.push(
                     context,
-                    MaterialPageRoute(builder: (context) => ProfilePage()),
+                    MaterialPageRoute(builder: (context) => CartPage()),
                   );
                 },
               ),

@@ -1,14 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_application_2/widgets/bottom_bar.dart';
 
-class ProfilePage extends StatefulWidget {
-  const ProfilePage({super.key});
+class CartPage extends StatefulWidget {
+  const CartPage({super.key});
 
   @override
-  State<ProfilePage> createState() => _ProfilePageState();
+  State<CartPage> createState() => _CartPageState();
 }
 
-class _ProfilePageState extends State<ProfilePage> {
+class _CartPageState extends State<CartPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
