@@ -125,7 +125,8 @@ class ItemsWidget4 extends StatelessWidget {
                               borderRadius: BorderRadius.circular(20),
                             ),
                             child: Icon(
-                              Icons.favorite_border_outlined,
+                              CupertinoIcons.add,
+                              size: 20,
                               color: Colors.white,
                             ),
                           ),
