@@ -288,7 +288,7 @@ class _SingleItemScreenState extends State<SingleItemScreen> {
                               style: ElevatedButton.styleFrom(
                                 primary: Color.fromARGB(255, 50, 54, 56),
                                 padding: EdgeInsets.symmetric(
-                                    vertical: 20, horizontal: 50),
+                                    vertical: 30, horizontal: 40),
                                 shape: RoundedRectangleBorder(
                                   borderRadius: BorderRadius.circular(18),
                                 ),
@@ -296,8 +296,7 @@ class _SingleItemScreenState extends State<SingleItemScreen> {
                               child: Text(
                                 "Thêm vào giỏ hàng",
                                 style: TextStyle(
-                                  fontSize: 20,
-                                  fontWeight: FontWeight.bold,
+                                  fontSize: 24,
                                   color: Colors.white,
                                   letterSpacing: 1,
                                 ),

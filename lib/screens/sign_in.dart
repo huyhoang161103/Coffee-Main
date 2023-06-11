@@ -96,7 +96,7 @@ class _SignInState extends State<SignIn> {
                           focusedBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                                 color:
-                                    Colors.white), // Màu đường viền khi focus
+                                    Colors.orange), // Màu đường viền khi focus
                           ),
                           errorBorder: OutlineInputBorder(
                             borderSide: BorderSide(
@@ -136,7 +136,7 @@ class _SignInState extends State<SignIn> {
                           focusedBorder: OutlineInputBorder(
                             borderSide: BorderSide(
                                 color:
-                                    Colors.white), // Màu đường viền khi focus
+                                    Colors.orange), // Màu đường viền khi focus
                           ),
                           errorBorder: OutlineInputBorder(
                             borderSide: BorderSide(

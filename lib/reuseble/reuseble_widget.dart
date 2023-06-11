@@ -46,14 +46,14 @@ Container signInsignUpButton(
       child: Text(
         isLogin ? "ĐĂNG NHẬP" : "ĐĂNG KÍ",
         style: TextStyle(
-            color: Colors.black87, fontWeight: FontWeight.bold, fontSize: 16),
+            color: Colors.white, fontWeight: FontWeight.bold, fontSize: 16),
       ),
       style: ButtonStyle(
           backgroundColor: MaterialStateProperty.resolveWith((states) {
             if (states.contains(MaterialState.pressed)) {
               return Colors.black26;
             }
-            return Colors.white;
+            return Colors.orange;
           }),
           shape: MaterialStateProperty.all<RoundedRectangleBorder>(
               RoundedRectangleBorder(borderRadius: BorderRadius.circular(30)))),

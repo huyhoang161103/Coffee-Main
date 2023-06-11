@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_2/widgets/home_bottom_bar.dart';
+import 'package:flutter_application_2/widgets/bottom_bar.dart';
 
 class NotificationsPage extends StatefulWidget {
   const NotificationsPage({super.key});
@@ -47,7 +47,7 @@ class _NotificationsPageState extends State<NotificationsPage> {
           ],
         ),
       )),
-      bottomNavigationBar: HomeBottomBar(),
+      bottomNavigationBar: BottomBar(currentIndex: 2),
     );
     ;
   }

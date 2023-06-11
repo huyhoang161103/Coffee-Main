@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_application_2/screens/favorites_screen.dart';
 import 'package:flutter_application_2/screens/profile_screen.dart';
 import 'package:flutter_application_2/screens/sign_in.dart';
-import 'package:flutter_application_2/widgets/home_bottom_bar.dart';
+import 'package:flutter_application_2/widgets/bottom_bar.dart';
 import 'package:flutter_application_2/widgets/items_widget1.dart';
 import 'package:flutter_application_2/widgets/items_widget2.dart';
 import 'package:flutter_application_2/widgets/items_widget3.dart';
@@ -154,7 +154,7 @@ class _HomeScreenState extends State<HomeScreen>
           ),
         ),
       ),
-      bottomNavigationBar: HomeBottomBar(),
+      bottomNavigationBar: BottomBar(currentIndex: 0),
       drawer: Drawer(
         backgroundColor: Color(0xFF212325),
         child: ListView(
