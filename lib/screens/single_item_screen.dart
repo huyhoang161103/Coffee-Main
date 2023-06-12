@@ -43,6 +43,7 @@ class _SingleItemScreenState extends State<SingleItemScreen> {
   }
 
   void navigateToCartPage() {
+    String iteamimg = widget.img;
     String itemName = widget.itemName;
     double itemPrice = widget.itemPrice;
     int itemQuantity = quantity;
@@ -53,6 +54,7 @@ class _SingleItemScreenState extends State<SingleItemScreen> {
       context,
       MaterialPageRoute(
         builder: (context) => CartPage(
+          img:iteamimg,
           itemName: itemName,
           itemPrice: itemPrice,
           itemQuantity: itemQuantity,
