@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_application_2/screens/cart_screen.dart';
 import 'package:flutter_application_2/screens/favorites_screen.dart';
 import 'package:flutter_application_2/screens/home_screen.dart';
 import 'package:flutter_application_2/screens/notifications_screen.dart';
-import 'package:flutter_application_2/screens/profile_screen.dart';
 
 class BottomBar extends StatelessWidget {
   final int currentIndex;
@@ -77,7 +77,7 @@ class BottomBar extends StatelessWidget {
               if (currentIndex != 3) {
                 Navigator.pushReplacement(
                   context,
-                  MaterialPageRoute(builder: (context) => ProfilePage()),
+                  MaterialPageRoute(builder: (context) => CartPage()),
                 );
               }
             },
