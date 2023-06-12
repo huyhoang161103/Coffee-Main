@@ -43,7 +43,7 @@ class _SingleItemScreenState extends State<SingleItemScreen> {
   }
 
   void navigateToCartPage() {
-    String iteamimg = widget.img;
+    String img = widget.img;
     String itemName = widget.itemName;
     double itemPrice = widget.itemPrice;
     int itemQuantity = quantity;
@@ -54,7 +54,7 @@ class _SingleItemScreenState extends State<SingleItemScreen> {
       context,
       MaterialPageRoute(
         builder: (context) => CartPage(
-          img:iteamimg,
+          img: img,
           itemName: itemName,
           itemPrice: itemPrice,
           itemQuantity: itemQuantity,
@@ -299,40 +299,41 @@ class _SingleItemScreenState extends State<SingleItemScreen> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             ElevatedButton(
-                              onPressed: navigateToCartPage,
+                              onPressed: toggleFavorites,
                               style: ElevatedButton.styleFrom(
-                                primary: Color.fromARGB(255, 50, 54, 56),
-                                padding: EdgeInsets.symmetric(
-                                    vertical: 30, horizontal: 40),
+                                primary: Colors.transparent,
+                                elevation: 0,
                                 shape: RoundedRectangleBorder(
-                                  borderRadius: BorderRadius.circular(18),
+                                  borderRadius: BorderRadius.circular(20),
                                 ),
                               ),
-                              child: Text(
-                                "Mua ngay",
-                                style: TextStyle(
-                                  fontSize: 24,
-                                  color: Colors.white,
-                                  letterSpacing: 1,
-                                ),
+                              child: Icon(
+                                isAddedToFavorites
+                                    ? Icons.favorite
+                                    : Icons.favorite_border,
+                                color: Color(0xFFE57734),
+                                size: 30,
                               ),
                             ),
-                            InkWell(
-                              onTap: toggleFavorites,
-                              child: Container(
-                                padding: EdgeInsets.all(12),
-                                decoration: BoxDecoration(
-                                  shape: BoxShape.circle,
-                                  color: isAddedToFavorites
-                                      ? Colors.red
-                                      : Colors.white,
+                            ElevatedButton(
+                              onPressed: navigateToCartPage,
+                              style: ElevatedButton.styleFrom(
+                                primary: Color(0xFFE57734),
+                                elevation: 0,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.circular(20),
                                 ),
-                                child: Icon(
-                                  Icons.favorite,
-                                  color: isAddedToFavorites
-                                      ? Colors.white
-                                      : Colors.grey,
-                                  size: 24,
+                              ),
+                              child: Padding(
+                                padding: EdgeInsets.symmetric(
+                                    horizontal: 30, vertical: 15),
+                                child: Text(
+                                  "Mua ngay",
+                                  style: TextStyle(
+                                    color: Colors.white,
+                                    fontSize: 16,
+                                    fontWeight: FontWeight.w500,
+                                  ),
                                 ),
                               ),
                             ),
@@ -351,20 +352,19 @@ class _SingleItemScreenState extends State<SingleItemScreen> {
   }
 
   Widget buildSizeRadioButton(String size) {
-    return GestureDetector(
+    return InkWell(
       onTap: () {
         setState(() {
           selectedSize = size;
         });
       },
       child: Container(
-        padding: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
+        padding: EdgeInsets.all(10),
         decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(20),
           color: selectedSize == size ? Colors.white : Colors.transparent,
+          borderRadius: BorderRadius.circular(20),
           border: Border.all(
-            color: Colors.white,
-            width: 1.5,
+            color: Colors.white.withOpacity(0.2),
           ),
         ),
         child: Text(

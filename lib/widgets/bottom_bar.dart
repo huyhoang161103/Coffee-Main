@@ -72,21 +72,21 @@ class BottomBar extends StatelessWidget {
               size: 35,
             ),
           ),
-          // GestureDetector(
-          //   onTap: () {
-          //     if (currentIndex != 3) {
-          //       Navigator.pushReplacement(
-          //         context,
-          //         MaterialPageRoute(builder: (context) => CartPage()),
-          //       );
-          //     }
-          //   },
-          //   child: Icon(
-          //     Icons.shopping_cart_rounded,
-          //     color: currentIndex == 3 ? Color(0xFFE57734) : Colors.white,
-          //     size: 35,
-          //   ),
-          // ),
+          GestureDetector(
+            onTap: () {
+              if (currentIndex != 3) {
+                // Navigator.pushReplacement(
+                //   context,
+                //   MaterialPageRoute(builder: (context) => CartPage()),
+                // );
+              }
+            },
+            child: Icon(
+              Icons.shopping_cart_rounded,
+              color: currentIndex == 3 ? Color(0xFFE57734) : Colors.white,
+              size: 35,
+            ),
+          ),
         ],
       ),
     );
