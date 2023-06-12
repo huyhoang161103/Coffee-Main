@@ -57,20 +57,48 @@ class BottomBar extends StatelessWidget {
               size: 35,
             ),
           ),
-          GestureDetector(
-            onTap: () {
-              if (currentIndex != 2) {
-                Navigator.pushReplacement(
-                  context,
-                  MaterialPageRoute(builder: (context) => NotificationsPage()),
-                );
-              }
-            },
-            child: Icon(
-              Icons.notifications,
-              color: currentIndex == 2 ? Color(0xFFE57734) : Colors.white,
-              size: 35,
-            ),
+          Stack(
+            children: [
+              GestureDetector(
+                onTap: () {
+                  if (currentIndex != 2) {
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => NotificationsPage()),
+                    );
+                  }
+                },
+                child: Icon(
+                  Icons.notifications,
+                  color: currentIndex == 2 ? Color(0xFFE57734) : Colors.white,
+                  size: 35,
+                ),
+              ),
+              if (currentIndex == 2 ||
+                  currentIndex == 0 ||
+                  currentIndex == 1 ||
+                  currentIndex == 3)
+                Positioned(
+                  top: 0,
+                  right: 0,
+                  child: Container(
+                    padding: EdgeInsets.all(4),
+                    decoration: BoxDecoration(
+                      color: Colors.red,
+                      borderRadius: BorderRadius.circular(10),
+                    ),
+                    child: Text(
+                      '2',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 12,
+                        fontWeight: FontWeight.bold,
+                      ),
+                    ),
+                  ),
+                ),
+            ],
           ),
           GestureDetector(
             onTap: () {
