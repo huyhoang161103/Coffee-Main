@@ -194,25 +194,6 @@ class _HomeScreenState extends State<HomeScreen>
               ),
               title: GestureDetector(
                 child: Text(
-                  'Giỏ hàng của tôi',
-                  style: TextStyle(color: Colors.white),
-                ),
-                onTap: () {
-                  Navigator.pop(context); // Đóng Drawer (nếu cần thiết)
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => CartPage()),
-                  );
-                },
-              ),
-            ),
-            ListTile(
-              leading: Icon(
-                Icons.shopping_cart,
-                color: Colors.white,
-              ),
-              title: GestureDetector(
-                child: Text(
                   'Món yêu thích của tôi',
                   style: TextStyle(color: Colors.white),
                 ),

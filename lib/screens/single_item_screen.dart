@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 import '../widgets/items_widget1.dart';
+import 'cart_screen.dart';
 
 class SingleItemScreen extends StatefulWidget {
   final String img;
@@ -39,6 +40,27 @@ class _SingleItemScreenState extends State<SingleItemScreen> {
         quantity--;
       }
     });
+  }
+
+  void navigateToCartPage() {
+    String itemName = widget.itemName;
+    double itemPrice = widget.itemPrice;
+    int itemQuantity = quantity;
+    String selectedSize = this.selectedSize;
+    double totalPrice = widget.itemPrice * quantity;
+
+    Navigator.push(
+      context,
+      MaterialPageRoute(
+        builder: (context) => CartPage(
+          itemName: itemName,
+          itemPrice: itemPrice,
+          itemQuantity: itemQuantity,
+          selectedSize: selectedSize,
+          totalPrice: totalPrice,
+        ),
+      ),
+    );
   }
 
   void toggleFavorites() {
@@ -275,16 +297,7 @@ class _SingleItemScreenState extends State<SingleItemScreen> {
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
                             ElevatedButton(
-                              onPressed: () {
-                                String itemName = widget.itemName;
-                                double itemPrice = totalPrice;
-                                int itemQuantity = quantity;
-
-                                print('Tên sản phẩm: $itemName');
-                                print('Giá sản phẩm: $itemPrice');
-                                print('Số lượng: $itemQuantity');
-                                print('Kích thước: $selectedSize');
-                              },
+                              onPressed: navigateToCartPage,
                               style: ElevatedButton.styleFrom(
                                 primary: Color.fromARGB(255, 50, 54, 56),
                                 padding: EdgeInsets.symmetric(
