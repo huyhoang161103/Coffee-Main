@@ -42,38 +42,74 @@ class _NotificationsPageState extends State<NotificationsPage> {
               SizedBox(
                 height: 30,
               ),
-              ListTile(
-                title: Text(
-                  'Giảm giá sản phẩm cà phê',
+              Padding(
+                padding: EdgeInsets.symmetric(horizontal: 15),
+                child: Text(
+                  'Thông báo',
                   style: TextStyle(
                     color: Colors.white,
+                    fontSize: 24,
                     fontWeight: FontWeight.bold,
-                    fontSize: 18,
-                  ),
-                ),
-                subtitle: Text(
-                  'Hãy nhanh tay mua sản phẩm cà phê giảm giá!',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 16,
                   ),
                 ),
               ),
-              ListTile(
-                title: Text(
-                  'Khuyến mãi đặc biệt',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontWeight: FontWeight.bold,
-                    fontSize: 18,
-                  ),
-                ),
-                subtitle: Text(
-                  'Nhận ngay ưu đãi đặc biệt cho sản phẩm cà phê.',
-                  style: TextStyle(
-                    color: Colors.white,
-                    fontSize: 16,
-                  ),
+              Container(
+                margin: EdgeInsets.symmetric(vertical: 10),
+                child: Column(
+                  children: [
+                    ListTile(
+                      leading: SizedBox(
+                        width: 80,
+                        height: 80,
+                        child: Image.asset(
+                          'images/giamgia.png',
+                          width: 100,
+                          height: 100,
+                        ),
+                      ),
+                      title: Text(
+                        'Highlands Coffee giảm 50% toàn menu qua GrabFood',
+                        style: TextStyle(
+                          color: Color(0xFFE57734),
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16,
+                        ),
+                      ),
+                      subtitle: Text(
+                        'Hãy nhanh tay đặt mua Highlands Coffee qua Garbfood để được nhận giảm giá 50% nhé!',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 14,
+                        ),
+                      ),
+                    ),
+                    ListTile(
+                      leading: SizedBox(
+                        width: 80,
+                        height: 80,
+                        child: Image.asset(
+                          'images/giamgia4.png',
+                          width: 100,
+                          height: 100,
+                        ),
+                      ),
+                      title: Text(
+                        'Highlands Coffee đồng giá 39k Trà và Phindi',
+                        style: TextStyle(
+                          color: Color(0xFFE57734),
+                          fontWeight: FontWeight.bold,
+                          fontSize: 16,
+                        ),
+                      ),
+                      subtitle: Text(
+                        'Đồng giá 39k cho cả 03 size . Áp dụng cho Trà và PhinDi mọi cửa hàng trên toàn quốc ',
+                        style: TextStyle(
+                          color: Colors.white,
+                          fontSize: 14,
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
               ),
             ],
