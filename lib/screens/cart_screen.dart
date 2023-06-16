@@ -1,4 +1,3 @@
-// cart_page.dart
 import 'package:flutter/material.dart';
 
 class CartPage extends StatelessWidget {
@@ -181,6 +180,49 @@ class CartPage extends StatelessWidget {
                                                 color: Colors.white,
                                                 fontSize: 18.0,
                                               ),
+                                            ),
+                                            SizedBox(height: 20.0),
+                                            Text(
+                                              'Nhập thông tin giao hàng:',
+                                              textAlign: TextAlign.center,
+                                              style: TextStyle(
+                                                color: Colors.white,
+                                                fontSize: 18.0,
+                                              ),
+                                            ),
+                                            SizedBox(height: 10.0),
+                                            TextField(
+                                              decoration: InputDecoration(
+                                                hintText: 'Họ và tên',
+                                              ),
+                                              style: TextStyle(
+                                                color: Colors.white,
+                                              ),
+                                            ),
+                                            SizedBox(height: 10.0),
+                                            TextField(
+                                              decoration: InputDecoration(
+                                                hintText: 'Địa chỉ',
+                                              ),
+                                              style: TextStyle(
+                                                color: Colors.white,
+                                              ),
+                                            ),
+                                            SizedBox(height: 10.0),
+                                            TextField(
+                                              decoration: InputDecoration(
+                                                hintText: 'Số điện thoại',
+                                              ),
+                                              style: TextStyle(
+                                                color: Colors.white,
+                                              ),
+                                            ),
+                                            SizedBox(height: 20.0),
+                                            ElevatedButton(
+                                              onPressed: () {
+                                                // Xử lý khi ấn nút "Xác nhận" trong bảng nhập thông tin giao hàng
+                                              },
+                                              child: Text('Xác nhận'),
                                             ),
                                           ],
                                         ),
