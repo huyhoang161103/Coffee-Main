@@ -167,21 +167,6 @@ class CartPage extends StatelessWidget {
                                                 ),
                                               ],
                                             ),
-                                            Icon(
-                                              Icons.check_circle_outline,
-                                              color: Colors.green,
-                                              size: 80.0,
-                                            ),
-                                            SizedBox(height: 20.0),
-                                            Text(
-                                              'Thanh toán thành công!',
-                                              textAlign: TextAlign.center,
-                                              style: TextStyle(
-                                                color: Colors.white,
-                                                fontSize: 18.0,
-                                              ),
-                                            ),
-                                            SizedBox(height: 20.0),
                                             Text(
                                               'Nhập thông tin giao hàng:',
                                               textAlign: TextAlign.center,
@@ -221,6 +206,54 @@ class CartPage extends StatelessWidget {
                                             ElevatedButton(
                                               onPressed: () {
                                                 // Xử lý khi ấn nút "Xác nhận" trong bảng nhập thông tin giao hàng
+                                                Navigator.of(context).pop();
+                                                showDialog(
+                                                  context: context,
+                                                  builder:
+                                                      (BuildContext context) {
+                                                    return Dialog(
+                                                      shape:
+                                                          RoundedRectangleBorder(
+                                                        borderRadius:
+                                                            BorderRadius
+                                                                .circular(20),
+                                                      ),
+                                                      backgroundColor:
+                                                          Color.fromARGB(
+                                                              255, 50, 54, 56),
+                                                      child: Padding(
+                                                        padding: EdgeInsets.all(
+                                                            20.0),
+                                                        child: Column(
+                                                          mainAxisSize:
+                                                              MainAxisSize.min,
+                                                          children: [
+                                                            Icon(
+                                                              Icons
+                                                                  .check_circle_outline,
+                                                              color:
+                                                                  Colors.green,
+                                                              size: 80.0,
+                                                            ),
+                                                            SizedBox(
+                                                                height: 20.0),
+                                                            Text(
+                                                              'Thanh toán thành công!',
+                                                              textAlign:
+                                                                  TextAlign
+                                                                      .center,
+                                                              style: TextStyle(
+                                                                color: Colors
+                                                                    .white,
+                                                                fontSize: 18.0,
+                                                              ),
+                                                            ),
+                                                          ],
+                                                        ),
+                                                      ),
+                                                    );
+                                                  },
+                                                );
                                               },
                                               child: Text('Xác nhận'),
                                             ),
