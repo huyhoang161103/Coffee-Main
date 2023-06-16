@@ -179,6 +179,9 @@ class CartPage extends StatelessWidget {
                                             TextField(
                                               decoration: InputDecoration(
                                                 hintText: 'Họ và tên',
+                                                hintStyle: TextStyle(
+                                                  color: Colors.white,
+                                                ),
                                               ),
                                               style: TextStyle(
                                                 color: Colors.white,
@@ -188,6 +191,9 @@ class CartPage extends StatelessWidget {
                                             TextField(
                                               decoration: InputDecoration(
                                                 hintText: 'Địa chỉ',
+                                                hintStyle: TextStyle(
+                                                  color: Colors.white,
+                                                ),
                                               ),
                                               style: TextStyle(
                                                 color: Colors.white,
@@ -197,6 +203,9 @@ class CartPage extends StatelessWidget {
                                             TextField(
                                               decoration: InputDecoration(
                                                 hintText: 'Số điện thoại',
+                                                hintStyle: TextStyle(
+                                                  color: Colors.white,
+                                                ),
                                               ),
                                               style: TextStyle(
                                                 color: Colors.white,
