@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 
+import 'home_screen.dart';
+
 class CartPage extends StatelessWidget {
   final String img;
   final String itemName;
@@ -214,8 +216,17 @@ class CartPage extends StatelessWidget {
                                             SizedBox(height: 20.0),
                                             ElevatedButton(
                                               onPressed: () {
-                                                // Xử lý khi ấn nút "Xác nhận" trong bảng nhập thông tin giao hàng
                                                 Navigator.of(context).pop();
+                                                Navigator.of(context).pop();
+                                                Navigator.push(
+                                                  context,
+                                                  MaterialPageRoute(
+                                                      builder: (context) =>
+                                                          HomeScreen()),
+                                                );
+
+                                                // Xử lý khi ấn nút "Xác nhận" trong bảng nhập thông tin giao hàng
+
                                                 showDialog(
                                                   context: context,
                                                   builder:
